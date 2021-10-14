@@ -32,7 +32,8 @@ def encrypt_column():
     data = request.get_json()
     df = pd.read_sql_table(data.table_name, engine)
     ev_col = df[data.column_name]
-    ev_col.apply(lambda x: evervault.encrypt(x))
+    ev_col = ev_col.apply(lambda x: evervault.encrypt(x))
+    print(ev_col)
     df['ev_' + data.column_name] = ev_col
     return 200
 
