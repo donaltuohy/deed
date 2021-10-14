@@ -38,7 +38,7 @@ def encrypt_column():
     return 200
 
 if __name__ == '__main__':
-    evervault.api_key = evervault.init(os.environ.get('API_KEY'))
+    evervault.init(os.environ.get('API_KEY'))
     app.run(
       host="0.0.0.0",
       port=8000
